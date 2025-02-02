@@ -1,6 +1,6 @@
+import path from "node:path";
 import webExtension from "@samrum/vite-plugin-web-extension";
 import react from "@vitejs/plugin-react";
-import path from "path";
 import { defineConfig } from "vite";
 import { getManifest } from "./src/manifest";
 

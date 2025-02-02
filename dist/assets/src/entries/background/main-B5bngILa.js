@@ -1,1 +1,0 @@
-import{b as t}from"../../../browser-polyfill-CDoadmtY.js";t.runtime.onInstalled.addListener(()=>{console.log("Extension installed")});t.runtime.onMessage.addListener((e,n,o)=>{if(e.action==="addEmojiToTitle")return r(e.title).then(i=>{o({response:i})}),!0});async function r(e){const n=["😊","🚀","🎉","👍","🔥"];return`${e} ${n[Math.floor(Math.random()*n.length)]}`}

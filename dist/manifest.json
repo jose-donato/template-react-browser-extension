@@ -1,32 +1,17 @@
 {
   "author": "jose-donato",
-  "description": "an opinionated template for creating browser extensions for chromium and firefox browsers using react tailwind and shadcn-ui",
-  "name": "template-react-browser-extension",
+  "description": "a browser extension for creating and managing prompts",
+  "name": "quickprompt",
   "version": "1.0.0",
-  "manifest_version": 3,
-  "action": {
-    "default_icon": {
-      "32": "icons/icon.png",
-      "38": "icons/icon.png"
-    },
-    "default_popup": "src/entries/popup/index.html"
-  },
-  "background": {
-    "service_worker": "serviceWorker.js",
-    "type": "module"
-  },
   "content_scripts": [
     {
       "js": [
         "src/entries/contentScript/primary/main.js"
       ],
       "matches": [
-        "https://twitter.com/*"
+        "*://*/*"
       ]
     }
-  ],
-  "host_permissions": [
-    "*://*/*"
   ],
   "icons": {
     "48": "icons/icon.png",
@@ -35,19 +20,27 @@
   "permissions": [
     "storage",
     "activeTab",
-    "scripting"
+    "scripting",
+    "*://*/*"
   ],
+  "background": {
+    "persistent": true,
+    "page": "background.html"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/icon.png",
+      "19": "icons/icon.png",
+      "32": "icons/icon.png",
+      "38": "icons/icon.png"
+    },
+    "default_popup": "src/entries/popup/index.html"
+  },
+  "manifest_version": 2,
   "web_accessible_resources": [
-    {
-      "resources": [
-        "assets/src/entries/contentScript/primary/main-GPJDZC7B.js",
-        "assets/client-Cak328OE.js",
-        "assets/browser-polyfill-CDoadmtY.js"
-      ],
-      "matches": [
-        "https://twitter.com/*"
-      ],
-      "use_dynamic_url": true
-    }
+    "assets/_commonjsHelpers-Cpj98o6Y.js",
+    "assets/browser-polyfill-CZ-T0TRz.js",
+    "assets/client-eckjEpFn.js",
+    "assets/src/entries/contentScript/primary/main-CnpgG5eG.js"
   ]
 }
